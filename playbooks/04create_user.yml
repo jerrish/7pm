@@ -1,0 +1,12 @@
+---
+ - name: create user
+   hosts: all
+   vars: 
+    username: user1
+    st: absent
+   tasks:
+    
+    - name: create user
+      user:
+        name: '{{username}}'
+        state: '{{st}}'
