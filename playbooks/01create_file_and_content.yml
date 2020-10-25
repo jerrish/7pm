@@ -1,0 +1,16 @@
+---
+ - name: This is ansible class 1st playbook
+   hosts: all
+   tasks:
+
+    - name: create a file in singapore dc
+      file:
+        path: /mnt/file1
+        state: touch
+        
+    - name: add a content
+      lineinfile:
+        path: /mnt/file1
+        line: 'This is first playbook'
+        state: present
+...
