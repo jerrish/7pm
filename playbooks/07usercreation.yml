@@ -1,0 +1,9 @@
+---
+ - name: create user
+   hosts: all
+   gather_facts: no
+   tasks:
+    - name: create user
+      user:
+        name: user1
+        state: present

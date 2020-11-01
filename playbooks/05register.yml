@@ -1,0 +1,14 @@
+---
+ - name: Check ram size
+   hosts: rhel,ubuntu
+   tasks:
+    
+    - name: verify ram
+      shell:
+        cmd: lsblk
+      register: output
+
+    - name: dump output
+      debug:
+        var: output
+...
