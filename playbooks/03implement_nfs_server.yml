@@ -1,10 +1,11 @@
 ---
- - name: Implement NFS Server on Singapore DC
-   hosts: ec2-54-169-12-193.ap-southeast-1.compute.amazonaws.com
+ - name: Implement NFS Server
+   hosts: '{{nfs_server}}'
+   vars_files: ../vars/nfs.yml
    tasks:
     
     - name: install nfs software
-      dnf:
+      yum:
         name: nfs-utils
         state: latest
 
@@ -16,13 +17,13 @@
 
     - name: create a share directory
       file:
-        path: /share1
+        path: '{{share_dir}}'
         state: directory
 
     - name: edit configuration
       lineinfile:
         path: /etc/exports
-        line: '/share1  ec2-18-139-217-218.ap-southeast-1.compute.amazonaws.com(ro)'
+        line: '{{share_dir}}  {{nfs_client}}{{perm}}'
         state: present
 
     - name: update
@@ -30,18 +31,19 @@
         cmd: exportfs -r
 
  - name: Implement NFS Client
-   hosts: ec2-18-139-217-218.ap-southeast-1.compute.amazonaws.com
+   hosts: '{{nfs_client}}'
+   vars_files: ../vars/nfs.yml
    tasks:
 
 
     - name: install pkg
-      dnf:
+      yum:
         name: nfs-utils
         state: present
     
     - name: Mount NFS Share
       mount:
-        path: /local1
-        src: ec2-54-169-12-193.ap-southeast-1.compute.amazonaws.com:/share1
+        path: '{{mount_point}}'
+        src: '{{nfs_server}}:{{share_dir}}'
         fstype: nfs
         state: mounted

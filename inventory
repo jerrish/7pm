@@ -1,3 +1,7 @@
-[rhel]
-ec2-54-169-12-193.ap-southeast-1.compute.amazonaws.com
-ec2-18-139-217-218.ap-southeast-1.compute.amazonaws.com
+[al]
+ec2-3-82-119-60.compute-1.amazonaws.com
+ec2-54-145-2-86.compute-1.amazonaws.com
+
+[ubuntu]
+ec2-54-82-58-54.compute-1.amazonaws.com
+ec2-100-27-31-254.compute-1.amazonaws.com

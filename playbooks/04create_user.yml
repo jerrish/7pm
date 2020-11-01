@@ -1,12 +1,11 @@
 ---
  - name: create user
-   hosts: all
-   vars: 
-    username: user1
-    st: absent
+   hosts: al
    tasks:
     
     - name: create user
       user:
         name: '{{username}}'
         state: '{{st}}'
+
+...
