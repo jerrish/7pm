@@ -1,8 +1,9 @@
 ---
  - name: gather facts with playbook
    hosts: all
+   gather_facts: no
    tasks:
-
+    
     - name: dump the gathered info
       debug:
         var: ansible_facts

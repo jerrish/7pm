@@ -1,0 +1,20 @@
+---
+ - name: create two users and install two softwares
+   hosts: rhel
+   gather_facts: no
+   vars_files: ../vars/loop_vars.yml
+   tasks:
+    
+    - name: ensure users are '{{st}}'
+      user:
+        name: '{{item}}'
+        state: '{{st}}'
+      loop: '{{users}}'
+
+    - name: ensure softwares is '{{st}}'
+      yum:
+        name: '{{item}}'
+        state: '{{st}}'
+      with_items: '{{softwares}}'
+
+

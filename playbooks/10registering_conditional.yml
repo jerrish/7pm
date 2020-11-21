@@ -1,0 +1,16 @@
+---
+ - name: test1
+   hosts: rhel
+   tasks:
+    
+    - name: update kernel
+      dnf:
+        name: 
+        state: latest
+      register: output
+
+    - name: if kernel update is sucess
+      service:
+        name: sshd
+        state: restarted
+      when: output.rc > 1
