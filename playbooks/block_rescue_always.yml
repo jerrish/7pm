@@ -1,0 +1,26 @@
+---
+ - name: block,rescue,always
+   hosts: rhel
+   gather_facts: no
+   tasks:
+    
+    - block:
+      
+        - name: plan a
+          yum:
+            name: nopkg
+            state: present
+
+      rescue:
+      
+        - name: plan b
+          yum:
+            name: nopkg
+            state: present
+
+      always:
+      
+        - name: plan c
+          yum:
+            name: vsftpd
+            state: present

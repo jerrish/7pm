@@ -1,7 +1,7 @@
 ---
- nfs_server: ec2-3-82-119-60.compute-1.amazonaws.com
- nfs_client: ec2-54-145-2-86.compute-1.amazonaws.com 
- share_dir: /share5
- mount_point: /local5
+ nfs_server: ec2-54-255-131-161.ap-southeast-1.compute.amazonaws.com
+ nfs_client: ec2-13-212-71-81.ap-southeast-1.compute.amazonaws.com 
+ share_dir: /share3
+ mount_point: /local3
  perm: (ro)
  
