@@ -1,0 +1,6 @@
+---
+ - name: 1st play
+   import_playbook: 02implement_apache_webserver.yml
+
+ - name: 2nd play
+   import_playbook: 03implement_nfs_server.yml 

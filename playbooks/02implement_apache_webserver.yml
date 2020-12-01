@@ -1,6 +1,7 @@
 ---
  - name: Implementation of apache webserver
-   hosts: all
+   hosts: rhel
+   serial: 1
    tasks:
     
     - name: install apache software
@@ -12,24 +13,3 @@
       service:
         name: httpd
         enabled: yes
-        state: started
-
- - name: Download website for server1
-   hosts: ec2-13-250-33-29.ap-southeast-1.compute.amazonaws.com
-   tasks:
-    
-    - name: copy a website1
-      copy:
-        src: /project/index.html
-        dest: /var/www/html
-
- - name: Download website for server2
-   hosts: ec2-13-250-63-65.ap-southeast-1.compute.amazonaws.com
-   tasks:
-    
-    - name: copy a website2
-      copy:
-        src: /srv/index.html
-        dest: /var/www/html
-      
-...

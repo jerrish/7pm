@@ -1,0 +1,8 @@
+---
+ - name: importing tasks
+   hosts: rhel
+   tasks:
+    
+    - name: import task1
+      import_tasks: ../tasks.yml
+      when: ansible_distribution == "CentOS"

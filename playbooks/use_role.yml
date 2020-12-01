@@ -1,0 +1,5 @@
+---
+ - name: implement docker
+   hosts: rhel
+   roles:
+    - /project/roles/geerlingguy.docker
